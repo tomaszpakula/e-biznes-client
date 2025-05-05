@@ -1,6 +1,8 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
 import React, { createContext, useEffect, useState } from "react";
+import { useMemo } from "react";
+import PropTypes from "prop-types";
 
 export const ProductContext = createContext();
 
@@ -46,18 +48,22 @@ export const ProductProvider = ({ children }) => {
       });
   }, [cartChange]);
 
+  const value = useMemo(() => ({
+    products,
+    setProducts,
+    items,
+    setItems,
+    errorProductMessage,
+    setCartChange,
+  }), [products, items, errorProductMessage, setProducts, setItems, setCartChange]);
+  
+
   return (
-    <ProductContext.Provider
-      value={{
-        products,
-        setProducts,
-        items,
-        setItems,
-        errorProductMessage,
-        setCartChange,
-      }}
-    >
+    <ProductContext.Provider value={value}>
       {children}
     </ProductContext.Provider>
   );
+};
+ProductProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };

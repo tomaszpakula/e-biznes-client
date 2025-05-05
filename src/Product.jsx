@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import useCarts from "./useCarts";
+import PropTypes from "prop-types";
 
 export default function Product({ product }) {
   const [quantity, setQuantity] = useState(0);
@@ -69,3 +70,12 @@ export default function Product({ product }) {
     </div>
   );
 }
+
+Product.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired,
+    price: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired
+  }).isRequired,
+};
