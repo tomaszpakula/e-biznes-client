@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import Products from "./Products";
 import Payments from "./Payments";
-import { BrowserRouter, Link, Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Cart from "./Cart";
 import { ProductProvider } from "./ProductContext";
 import PaymentMessage from "./PaymentMessage";
 import CartIcon from "./CartIcon";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <ProductProvider>

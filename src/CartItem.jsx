@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import useCarts from "./useCarts";
+import PropTypes from "prop-types";
 
 export default function CartItem({ name, item }) {
   const { removeItem } = useCarts();
@@ -17,3 +18,12 @@ export default function CartItem({ name, item }) {
     </div>
   );
 }
+
+CartItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  item: PropTypes.shape({
+    productId: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      .isRequired,
+    quantity: PropTypes.number.isRequired,
+  }).isRequired,
+};

@@ -2,7 +2,6 @@ describe("Shop - tests", () => {
   beforeEach(() => {
     cy.visit("http://localhost:5173/");
     cy.intercept("GET", "**/cart").as("getCart");
-    // cy.wait(5000);
   });
 
   it("1. Every product should have a button add to cart", () => {

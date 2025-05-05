@@ -1,6 +1,7 @@
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 import React from "react";
 
@@ -16,3 +17,7 @@ export default function CartIcon({ to }) {
     </Link>
   );
 }
+
+CartIcon.propTypes = {
+  to: PropTypes.string.isRequired,
+};

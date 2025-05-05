@@ -6,7 +6,7 @@ import "./App.css";
 import useCarts from "./useCarts";
 
 export default function Cart() {
-  const { items, setItems } = useContext(ProductContext);
+  const { items } = useContext(ProductContext);
   const { products } = useContext(ProductContext);
   const { clearCart } = useCarts();
   return (
@@ -17,12 +17,12 @@ export default function Cart() {
       ) : (
         ""
       )}
-      {items.map((item, index) => {
+      {items.map((item) => {
         const product = products.find((p) => p.id === item.productId);
         return (
           <>
             {product ? (
-              <CartItem name={product.name} item={item} key={`item${index}`} />
+              <CartItem name={product.name} item={item} key={item.id} />
             ) : (
               ""
             )}

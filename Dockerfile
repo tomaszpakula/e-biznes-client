@@ -7,8 +7,7 @@ COPY . .
 
 RUN chown -R node:node /app
 USER node
-RUN chmod -R a+x node_modules/.bin
-RUN chmod -R a+x node_modules
+RUN chmod -R a+x node_modules/.bin && chmod -R a+x node_modules
 
 EXPOSE 5173
 CMD ["npm", "run", "dev"]
