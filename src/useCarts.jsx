@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { ProductContext } from "./ProductContext";
 
 export default function useCarts() {
-  const { setItems } = useContext(ProductContext);
+  const { items, setItems } = useContext(ProductContext);
   const { setCartChange } = useContext(ProductContext);
   const clearCart = () => {
     axios(`http://localhost:9000/cart`, {
@@ -38,7 +38,8 @@ export default function useCarts() {
         "Content-Type": "application/json",
       },
     }).then(() => {
-      setItems((prev) => prev.filter((item) => item.productId != id));
+      const filteredItems = items.filter((item) => item.productId !== id);
+      setItems(filteredItems);
     });
   };
 
