@@ -1,7 +1,6 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
-import React, { createContext, useEffect, useState } from "react";
-import { useMemo } from "react";
+import React, { createContext, useEffect, useState, useMemo } from "react";
 import PropTypes from "prop-types";
 
 export const ProductContext = createContext();
